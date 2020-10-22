@@ -1,11 +1,33 @@
 {
-  "name": "every-utils",
-  "version": "1.0.0",
+  "name": "@palerock/every-utils",
+  "version": "0.2.1",
   "description": "",
-  "main": "index.js",
+  "main": "every-utils.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "demo": "node ./demo/node.js",
+    "build": "echo 'build'",
+    "do-publish": "npm run build && npm publish --access public"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canguser/every-utils.git"
+  },
+  "files": [
+    "demo",
+    "every-utils.js",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "Vue",
+    "Annotate",
+    "Decorator"
+  ],
+  "author": "Cangshi",
+  "bugs": {
+    "url": "https://github.com/canguser/every-utils/issues"
+  },
+  "homepage": "https://github.com/canguser/every-utils#readme",
+  "license": "MIT"
 }

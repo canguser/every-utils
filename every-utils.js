@@ -218,7 +218,7 @@
              */
             ergodicArrayObject: function (context, arr, cb) {
                 if (!context) {
-                    context = window;
+                    context = _global;
                 }
                 if (!BaseUtils.isArray(arr) || !BaseUtils.isFunction(cb)) {
                     return;
@@ -312,7 +312,7 @@
                     if (obj === value) {
                         isContainsObject = true;
                         if (BaseUtils.isFunction(cb)) {
-                            cb.call(window, i);
+                            cb.call(_global, i);
                         }
                         return -1;
                     }
@@ -374,7 +374,7 @@
                     }
                 });
                 if (BaseUtils.isFunction(cb)) {
-                    cb.call(window, sum, count);
+                    cb.call(_global, sum, count);
                 }
                 return sum;
             },
@@ -526,7 +526,7 @@
                             if (names[names.length - 1] === name && names.length - 1 === i) {
                                 result = iterationObj;
                                 if (callback) {
-                                    callback.call(window, result, linkProperty);
+                                    callback.call(_global, result, linkProperty);
                                 }
                             }
                             // 终止对接下来的属性的遍历
@@ -547,7 +547,7 @@
                         console.warn(obj, '的属性[\'' + linkProperty + '\']值未找到');
                     }
                     if (callback) {
-                        callback.call(window, normalResult, linkProperty);
+                        callback.call(_global, normalResult, linkProperty);
                     }
                     return normalResult;
                 }
@@ -557,7 +557,7 @@
                         var value = this.readLinkProperty(obj, name);
                         results.push(value);
                         if (callback && name !== '') {
-                            return callback.call(window, value, name);
+                            return callback.call(_global, value, name);
                         }
                     });
                     results.isMultipleResults = true;
@@ -679,7 +679,7 @@
                             if (iterationObj && iterationObj.hasOwnProperty(name)) {
                                 iterationObj = iterationObj[name];
                             } else {
-                                result = cb.call(window, propertyNames);
+                                result = cb.call(_global, propertyNames);
                                 // 终止对接下来的属性的遍历
                                 return -1;
                             }
