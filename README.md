@@ -36,7 +36,7 @@
 > 具体 Utils 模块以及相关方法参见源码及注释
 
 ## 相关地址
-- 主页：[https://palerock.cn/projects]()
-- Github (优先更新源码)：[https://palerock.cn/projects]()
-- Gitee：[https://palerock.cn/projects]()
+- 主页：[https://palerock.cn/projects/006GEgVQfex](https://palerock.cn/projects/006GEgVQfex)
+- Github (优先更新源码)：[https://github.com/canguser/every-utils](https://github.com/canguser/every-utils)
+- Gitee：[https://gitee.com/HGJing/every-utils](https://gitee.com/HGJing/every-utils)
 ## 欢迎其它贡献者的加入或提出疑问或建议
