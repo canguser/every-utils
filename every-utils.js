@@ -10,6 +10,10 @@
 
 }(typeof window !== "undefined" ? window : this, function (_global, noGlobal) {
 
+    var map = Array.prototype.map;
+    var forEach = Array.prototype.forEach;
+    var reduce = Array.prototype.reduce;
+
     var BaseUtils = {
         /**
          * 对象是否为数组
@@ -63,7 +67,7 @@
             if (!BaseUtils.isArray(depends)) {
                 return;
             }
-            depends.forEach(function (depend) {
+            forEach.call(depends, function (depend) {
                 if (BaseUtils.isString(depend)) {
                     dependsArr.push(serviceProvider[depend.toLowerCase()]);
                 }
@@ -1021,7 +1025,7 @@
                 var fs = [];
                 fs.push(func);
                 var properties = ['push', 'unshift', 'slice', 'map', 'forEach', 'keys', 'find', 'concat', 'fill', 'shift', 'values'];
-                properties.map(function (property) {
+                map.call(properties, function (property) {
                     if (typeof Array.prototype[property] === 'function') {
                         Object.defineProperty(_this, property, {
                             get: function () {
@@ -1035,7 +1039,7 @@
                 });
                 this.result = function (context) {
                     var rfs = [];
-                    fs.map(function (f, index) {
+                    map.call(fs, function (f, index) {
                         if (typeof f === 'function') {
                             rfs.push(f);
                         }
@@ -1045,10 +1049,10 @@
                             arguments: arguments,
                             this: this
                         };
-                        rfs.map(function (f) {
+                        map.call(rfs, function (f) {
                             var dv = f.apply(context || this, [declareVar]);
                             if (dv) {
-                                Object.keys(dv).map(function (key) {
+                                map.call(Object.keys(dv), function (key) {
                                     declareVar[key] = dv[key];
                                 });
                             }
@@ -1265,7 +1269,7 @@
             });
         }
         var proxy = {};
-        Object.keys(utils).forEach(function (utilName) {
+        forEach.call(Object.keys(utils), function (utilName) {
             if (!utilName) {
                 return;
             }
@@ -1274,7 +1278,7 @@
                     return utils[utilName];
                 }
             });
-            Object.keys(utils[utilName]).forEach(function (key) {
+            forEach.call(Object.keys(utils[utilName]), function (key) {
                 if (!key) {
                     return;
                 }
